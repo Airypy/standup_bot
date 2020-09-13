@@ -10,11 +10,13 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from .models import Report
 import time
 
+
+
 dict={}
 @csrf_exempt
 def event_check(request):
     global dict
-    client=Slacker('xoxb-1275324322789-1302871043735-5vrlpplmafUdD5NxoCIo3ClV')
+    client=Slacker('token_key')
     json_dict = json.loads(request.body.decode('utf-8'))
     if json_dict['token'] != settings.VERIFICATION_TOKEN:
         return HttpResponse(status=403)
@@ -29,11 +31,11 @@ def event_check(request):
     if event_msg['type'] == 'message':
         user = event_msg['user']
         #To check the message recieved is not of bot himself
-        if user!='U018WRM19MM' and user in dict:
+        if user!='bot_userid' and user in dict:
             dict[user]+=1
-        if user!='U018WRM19MM' and user not in dict:
+        if user!='bot_userid'' and user not in dict:
             dict[user]=1
-        if user!='U018WRM19MM':
+        if user!='bot_userid':
             error=False
             try:
                 print(Report.objects.values('user'))
@@ -70,7 +72,7 @@ def event_check(request):
 
 def list_stack(user='user',dict={}):
 
-    slack=Slacker('xoxb-1275324322789-1302871043735-5vrlpplmafUdD5NxoCIo3ClV')
+    slack=Slacker('token_key')
 
     if user=='user':
 
@@ -100,7 +102,7 @@ def list_stack(user='user',dict={}):
 
 def post_report():
     global dict
-    slack=Slacker('xoxb-1275324322789-1302871043735-5vrlpplmafUdD5NxoCIo3ClV')
+    slack=Slacker('token_key')
     try:
         response=slack.users.list()
         users=response.body['members']

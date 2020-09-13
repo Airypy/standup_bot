@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'aa$irfp@!v#!k1-1*a(vqg1=zu3n8c9@cx!_(qt#9ufk8rjx$h'
+SECRET_KEY = 'SECRET_KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -28,10 +28,10 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 #TOKENS AND SECRETS
-VERIFICATION_TOKEN='FJi9LBlsHVBxq6BMZIqayzcp'
-BOT_USER_ACESS_TOKEN='xoxb-1275324322789-1302871043735-5vrlpplmafUdD5NxoCIo3ClV'
-CLIENT_ID='1275324322789.1310882751302'
-CLIENT_SECRET='1275324322789.1310882751302'
+VERIFICATION_TOKEN='VERIFICATION_TOKEN'
+BOT_USER_ACESS_TOKEN='BOT_USER_ACESS_TOKEN'
+CLIENT_ID='CLIENT_ID'
+CLIENT_SECRET='CLIENT_SECRET'
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bothard',
-    
+
 ]
 
 MIDDLEWARE = [
